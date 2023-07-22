@@ -1,0 +1,47 @@
+﻿@model List<Book> 
+
+
+@{
+    ViewData["Title"] = "Popis knjiga";
+}
+
+
+<h2>@ViewBag.Title</h2>
+<hr />
+
+
+<table class="table">
+    <tr>
+  
+        <th>
+            Name
+        </th>
+        <th>
+            NumberOfPages
+        </th>
+        <th>
+            Author
+        </th>
+
+    </tr>
+    @foreach(var item in Model)
+    {
+        <tr>
+         
+            <td>
+                @item.Name
+            </td>
+            <td>
+                @item.NumberOfPages
+            </td>
+            @foreach(var x in item.Authors)
+            {
+                <td>
+                    @x.Id | @x.ImePrezime|@x.Country
+                </td>
+              
+            }
+
+        </tr>
+    }
+</table>
